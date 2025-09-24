@@ -6,7 +6,7 @@ export const GenerateAdvicePlanDraft = ({ ai: _ai, repo: _repo }: any) => (_q: a
     ok({
       planId: crypto.randomUUID(),
       summary: "Draft advice (stub)",
-      actions: [{ type: "REBALANCE" as const, note: "Shift 5% to bonds" }],
-      rationale: ["Improve diversification"]
+      actions: [{ type: "REBALANCE" as const, note: "Shift 5% from overweight large-cap to bonds" }],
+      rationale: ["Improve diversification", "Respect constraints"]
     })
   )
