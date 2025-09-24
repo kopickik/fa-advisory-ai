@@ -17,7 +17,8 @@
     "coverage": "vitest --coverage",
     "changeset-version": "changeset version && node scripts/version.mjs",
     "changeset-publish": "pnpm build && TEST_DIST= pnpm vitest && changeset publish",
-    "dev": "pnpm --filter api dev",
+    "dev": "tsx --watch -r tsconfig-paths/register apps/api/src/main.ts",
+    "dev:api": "tsx --watch -r tsconfig-paths/register apps/api/src/main.ts",
     "start": "node apps/api/dist/main.js"
   },
   "devDependencies": {
@@ -34,10 +35,14 @@
     "@eslint/compat": "1.2.2",
     "@eslint/eslintrc": "3.1.0",
     "@eslint/js": "9.13.0",
+    "@fastify/cors": "^11.1.0",
+    "@fastify/swagger": "^9.5.1",
+    "@fastify/swagger-ui": "^5.2.3",
     "@types/node": "^22.18.6",
     "@typescript-eslint/eslint-plugin": "^8.12.2",
     "@typescript-eslint/parser": "^8.12.2",
     "babel-plugin-annotate-pure-calls": "^0.5.0",
+    "dotenv": "^17.2.2",
     "effect": "^3.17.13",
     "eslint": "^9.35.0",
     "eslint-import-resolver-typescript": "^3.6.3",
@@ -46,6 +51,7 @@
     "eslint-plugin-simple-import-sort": "^12.1.1",
     "eslint-plugin-sort-destructure-keys": "^2.0.0",
     "glob": "^11.0.0",
+    "tsconfig-paths": "^4.2.0",
     "tsx": "^4.20.5",
     "typescript": "^5.9.2",
     "vitest": "^3.2.4"
