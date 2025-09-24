@@ -1,0 +1,21 @@
+{
+  "extends": "../../tsconfig.base.json",
+  "include": ["src"],
+  "references": [
+    { "path": "../../packages/shared" },
+    { "path": "../../packages/contracts" },
+    { "path": "../../packages/use-cases" },
+    { "path": "../../packages/adapters" },
+    { "path": "../../packages/ai" },
+    { "path": "../../packages/domain" }
+  ],
+  "compilerOptions": {
+    "module": "nodenext",
+    "types": ["node"],
+    "outDir": "dist",
+    "tsBuildInfoFile": ".tsbuildinfo/src.tsbuildinfo",
+    "rootDir": "src",
+    "composite": true,
+    "declaration": true
+  }
+}

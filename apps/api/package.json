@@ -1,0 +1,23 @@
+{
+    "name": "@template/api",
+    "version": "0.0.0",
+    "type": "module",
+    "license": "MIT",
+    "description": "The api app",
+    "repository": {
+        "type": "git",
+        "url": "<PLACEHOLDER>",
+        "directory": "apps/api"
+    },
+    "scripts": {
+        "build": "tsc -b tsconfig.build.json",
+        "check": "tsc -b tsconfig.json"
+    },
+    "dependencies": {
+        "@template/adapters": "workspace:*",
+        "@template/ai": "workspace:*",
+        "@template/contracts": "workspace:*",
+        "@template/shared": "workspace:*",
+        "@template/use-cases": "workspace:*"
+    }
+}
