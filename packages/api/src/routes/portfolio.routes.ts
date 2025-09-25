@@ -1,7 +1,7 @@
-import { makeMemoryPortfolioRepo } from "@adapters"
-import { GetPortfolioSummaryQuerySchema } from "@contracts"
-import { createHandler } from "@shared"
-import { GetPortfolioSummary } from "@use-cases"
+import { makeMemoryPortfolioRepo } from "@template/adapters"
+import { GetPortfolioSummaryQuerySchema } from "@template/contracts"
+import { createHandler } from "@template/shared"
+import { GetPortfolioSummary } from "@template/use-cases"
 
 export async function portfolioRoutes(app: any) {
   const repo = makeMemoryPortfolioRepo([

@@ -1,9 +1,8 @@
-// apps/api/src/routes/advice.routes.ts
-import { makeMemoryPortfolioRepo } from "@adapters"
-import { makeOpenAiService } from "@ai"
-import { GenerateAdviceBodySchema } from "@contracts"
-import { createHandler } from "@shared"
-import { GenerateAdvicePlanDraft } from "@use-cases"
+import { makeMemoryPortfolioRepo } from "@template/adapters"
+import { makeOpenAiService } from "@template/ai"
+import { GenerateAdviceBodySchema } from "@template/contracts"
+import { createHandler } from "@template/shared"
+import { GenerateAdvicePlanDraft } from "@template/use-cases"
 
 const seed = [
   {

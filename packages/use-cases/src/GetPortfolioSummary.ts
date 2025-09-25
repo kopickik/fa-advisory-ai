@@ -1,7 +1,7 @@
-import type { PortfolioRepo } from "@adapters"
-import { diversifyScore, totalValue } from "@domain"
-import type { AppError, Result } from "@shared"
-import { err, ok } from "@shared"
+import type { PortfolioRepo } from "@template/adapters"
+import { diversifyScore, totalValue } from "@template/domain"
+import { err, ok } from "@template/shared"
+import type { AppError, Result } from "@template/shared"
 import * as Effect from "effect/Effect"
 
 type Out = { portfolioId: string; ownerId: string; base: "USD" | "EUR" | "GBP"; total: number; diversify: number }

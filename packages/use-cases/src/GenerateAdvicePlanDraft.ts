@@ -1,4 +1,4 @@
-import { ok } from "@shared"
+import { ok } from "@template/shared"
 import * as Effect from "effect/Effect"
 
 export const GenerateAdvicePlanDraft = ({ ai: _ai, repo: _repo }: any) => (_q: any) =>

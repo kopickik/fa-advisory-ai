@@ -1,0 +1,20 @@
+{
+	"extends": "../../tsconfig.base.json",
+	"include": ["src"],
+	"references": [
+		{ "path": "../shared" },
+		{ "path": "../domain" },
+		{ "path": "../contracts" },
+		{ "path": "../adapters" },
+		{ "path": "../ai" },
+		{ "path": "../use-cases" },
+		{ "path": "../infra" },
+		{ "path": "../agents" }
+	],
+	"compilerOptions": {
+		"types": ["node"],
+		"outDir": "build/src",
+		"tsBuildInfoFile": ".tsbuildinfo/src.tsbuildinfo",
+		"rootDir": "src"
+	}
+}

@@ -1,19 +1,13 @@
 {
-  "extends": "../../tsconfig.base.json",
-  "include": ["src/**/*.ts"],
-  "references": [
-    { "path": "../adapters" },
-    { "path": "../domain" },
-    { "path": "../shared" },
-    { "path": "../contracts" },
-    { "path": "../ai" }
-  ],
-  "compilerOptions": {
-    "module": "nodenext",
-    "types": ["node"],
-    "outDir": "dist",
-    "rootDir": "src",
-    "composite": true,
-    "declaration": true
-  }
+	"extends": "../../tsconfig.base.json",
+	"include": ["src/**/*.ts"],
+	"references": [{ "path": "../domain" }, { "path": "../shared" }, { "path": "../adapters" }],
+	"compilerOptions": {
+		"module": "nodenext",
+		"types": ["node"],
+		"outDir": "dist",
+		"rootDir": "src",
+		"composite": true,
+		"declaration": true
+	}
 }

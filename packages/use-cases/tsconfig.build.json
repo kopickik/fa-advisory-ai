@@ -1,10 +1,15 @@
 {
-  "extends": "./tsconfig.src.json",
-  "compilerOptions": {
-    "types": ["node"],
-    "tsBuildInfoFile": ".tsbuildinfo/build.tsbuildinfo",
-    "outDir": "build/esm",
-    "declarationDir": "build/dts",
-    "stripInternal": true
-  }
+	"extends": "./tsconfig.src.json",
+	"references": [
+		{ "path": "../domain/tsconfig.build.json" },
+		{ "path": "../shared/tsconfig.build.json" },
+		{ "path": "../adapters/tsconfig.build.json" }
+	],
+	"compilerOptions": {
+		"types": ["node"],
+		"tsBuildInfoFile": ".tsbuildinfo/build.tsbuildinfo",
+		"outDir": "build/esm",
+		"declarationDir": "build/dts",
+		"stripInternal": true
+	}
 }

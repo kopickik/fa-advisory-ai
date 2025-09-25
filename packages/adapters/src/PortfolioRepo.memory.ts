@@ -1,4 +1,4 @@
-import type { Portfolio } from "@domain"
+import type { Portfolio } from "@template/domain"
 import type { PortfolioRepo } from "./PortfolioRepo.port.ts"
 
 export const makeMemoryPortfolioRepo = (seed: Array<Portfolio>): PortfolioRepo => {
