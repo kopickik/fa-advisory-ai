@@ -1,5 +1,5 @@
 import { makeMemoryPortfolioRepo } from "@template/adapters"
-import { GetPortfolioSummaryQuerySchema } from "@template/contracts"
+import { GetPortfolioSummaryQuerySchema, getPortfolioSummarySchema } from "@template/contracts"
 import { createHandler } from "@template/shared"
 import { GetPortfolioSummary } from "@template/use-cases"
 
@@ -11,6 +11,7 @@ export async function portfolioRoutes(app: any) {
 
   app.get(
     "/portfolio/summary",
+    { schema: getPortfolioSummarySchema },
     createHandler(
       GetPortfolioSummaryQuerySchema,
       (req) => req.query,
