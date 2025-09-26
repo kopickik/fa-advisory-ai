@@ -26,5 +26,12 @@
     "@effect/platform": "latest",
     "@effect/sql": "latest",
     "effect": "latest"
+  },
+  "effect": {
+    "generateExports": {
+      "include": [
+        "**/*.ts"
+      ]
+    }
   }
 }
