@@ -1,2 +1,3 @@
-export * from "./advice-plan.js"
-export * from "./portfolio.js"
+export * as advicePlan from "./advicePlan.js"
+
+export * as portfolio from "./portfolio.js"

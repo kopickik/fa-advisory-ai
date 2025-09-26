@@ -33,11 +33,6 @@
       "include": [
         "**/*.ts"
       ]
-    },
-    "generateIndex": {
-      "include": [
-        "**/*.ts"
-      ]
     }
   }
 }
