@@ -1,3 +1,5 @@
 export * from "./dto.js"
 export * from "./openapi/portfolio.js"
+export * from "./openapi/prompt.js"
 export * from "./openapi/types.js"
+export * from "./prompt.js"

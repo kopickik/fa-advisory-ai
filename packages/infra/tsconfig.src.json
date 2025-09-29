@@ -1,12 +1,12 @@
 {
-  "extends": "../../tsconfig.base.json",
-  "include": ["src/**/*.ts"],
-  "compilerOptions": {
-    "module": "nodenext",
-    "types": ["node"],
-    "outDir": "dist",
-    "rootDir": "src",
-    "composite": true,
-    "declaration": true
-  }
+	"extends": "../../tsconfig.base.json",
+	"include": ["src/**/*.ts"],
+	"compilerOptions": {
+		"types": ["node"],
+		"outDir": "dist",
+		"rootDir": "src",
+		"composite": true,
+		"declaration": true,
+		"declarationMap": true
+	}
 }

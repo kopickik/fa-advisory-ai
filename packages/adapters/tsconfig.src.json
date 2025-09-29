@@ -1,11 +1,14 @@
 {
 	"extends": "../../tsconfig.base.json",
-	"include": ["src"],
-	"references": [{ "path": "../domain" }],
+	"include": ["src/**/*.ts"],
+	"references": [{ "path": "../domain" }, { "path": "../contracts" }],
 	"compilerOptions": {
+		"composite": true,
 		"types": ["node"],
-		"outDir": "build/src",
+		"outDir": "dist",
 		"tsBuildInfoFile": ".tsbuildinfo/src.tsbuildinfo",
-		"rootDir": "src"
+		"rootDir": "src",
+		"declaration": true,
+		"declarationMap": true
 	}
 }

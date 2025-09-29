@@ -3,11 +3,11 @@
 	"include": ["src/**/*.ts"],
 	"references": [{ "path": "../domain" }, { "path": "../shared" }, { "path": "../adapters" }],
 	"compilerOptions": {
-		"module": "nodenext",
 		"types": ["node"],
 		"outDir": "dist",
 		"rootDir": "src",
 		"composite": true,
-		"declaration": true
+		"declaration": true,
+		"declarationMap": true
 	}
 }
