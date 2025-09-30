@@ -6,11 +6,11 @@ import {
   makePassThroughCompliance
 } from "@template/adapters"
 import type { PromptSuggestionDTO } from "@template/contracts"
+import { GetPromptsQuerySchema } from "@template/contracts"
 import { createHandler } from "@template/shared"
 import { type AppError, err, fromUnknown, ok, type Result } from "@template/shared"
 import { GenerateDailyPrompts } from "@template/use-cases"
 import * as Effect from "effect/Effect"
-import * as S from "effect/Schema"
 import type { FastifyInstance } from "fastify"
 
 // --- Swagger-only JSON schema (for docs/UI) ----------------------------
@@ -22,11 +22,6 @@ const getPromptsTodaySwagger = {
     additionalProperties: false
   }
 }
-
-// --- Effect schema for handler decoding (do not mix with Swagger) ------
-const GetPromptsQuerySchema = S.Struct({
-  userId: S.String
-})
 
 export async function promptsRoutes(app: FastifyInstance) {
   // In-memory adapters (replace with real impls later)
