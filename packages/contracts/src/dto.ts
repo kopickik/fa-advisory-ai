@@ -1,28 +1,22 @@
-import * as S from "@effect/schema/Schema"
+// packages/contracts/src/schemas.ts
+import * as S from "effect/Schema"
 
+// ---------- Portfolio ----------
 export const GetPortfolioSummaryQuerySchema = S.Struct({
   portfolioId: S.String
 })
-export type GetPortfolioSummaryQuery = S.Schema.ToAsserts<typeof GetPortfolioSummaryQuerySchema>
+// You can export the inferred TS type if you want:
+export type GetPortfolioSummaryQuery = typeof GetPortfolioSummaryQuerySchema.Type
 
+// ---------- Advice ----------
 export const GenerateAdviceBodySchema = S.Struct({
   portfolioId: S.String,
-  constraints: S.optional(S.Struct({
-    prohibitedSymbols: S.optional(S.Array(S.String)),
-    minDiversification: S.optional(S.Number),
-    targetRisk: S.optional(S.Literal("LOW", "MEDIUM", "HIGH"))
-  }))
+  constraints: S.optional(
+    S.Struct({
+      prohibitedSymbols: S.optional(S.Array(S.String)),
+      minDiversification: S.optional(S.Number),
+      targetRisk: S.optional(S.Union(S.Literal("LOW"), S.Literal("MEDIUM"), S.Literal("HIGH")))
+    })
+  )
 })
-export type GenerateAdviceBody = S.Schema.ToAsserts<typeof GenerateAdviceBodySchema>
-
-export const AdviceResponse = S.Struct({
-  planId: S.String,
-  summary: S.String,
-  actions: S.Array(S.Struct({
-    type: S.Literal("BUY", "SELL", "REBALANCE"),
-    symbol: S.optional(S.String),
-    note: S.optional(S.String)
-  })),
-  rationale: S.Array(S.String)
-})
-export type AdviceResponse = S.Schema.ToAsserts<typeof AdviceResponse>
+export type GenerateAdviceBody = typeof GenerateAdviceBodySchema.Type

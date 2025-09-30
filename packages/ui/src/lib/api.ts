@@ -1,4 +1,4 @@
-import * as S from "@effect/schema/Schema"
+import * as S from "effect/Schema"
 import * as Effect from "effect/Effect"
 
 const Summary = S.Struct({

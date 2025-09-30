@@ -4,6 +4,7 @@ import swagger from "@fastify/swagger"
 import swaggerUI from "@fastify/swagger-ui"
 import { adviceRoutes } from "./routes/advice.routes.js"
 import { portfolioRoutes } from "./routes/portfolio.routes.js"
+import { promptsRoutes } from "./routes/prompts.routes.js"
 import { buildServer } from "./server.js"
 
 const app = buildServer()
@@ -15,14 +16,17 @@ await app.register(cors, {
   methods: ["GET", "POST", "PUT", "DELETE", "OPTIONS"]
 })
 
-await app.register(swagger, {
-  openapi: {
-    info: { title: "Finance Advisory AI API", version: "0.1.0" }
-  }
-})
+if (process.env.NODE_ENV !== "production") {
+  await app.register(swagger, {
+    openapi: {
+      info: { title: "Finance Advisory AI API", version: "0.1.0" }
+    }
+  })
 
-await app.register(swaggerUI, { routePrefix: "/docs" })
+  await app.register(swaggerUI, { routePrefix: "/docs" })
+}
 
+await app.register(promptsRoutes)
 await portfolioRoutes(app)
 await adviceRoutes(app)
 

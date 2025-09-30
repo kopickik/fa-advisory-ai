@@ -1,7 +1,11 @@
 import type { Portfolio } from "@template/domain"
-import type { PortfolioRepo } from "./PortfolioRepo.port.ts"
+import type { PortfolioRepo } from "./PortfolioRepo.port.js"
 
-export const makeMemoryPortfolioRepo = (seed: Array<Portfolio>): PortfolioRepo => {
-  const byId = new Map(seed.map((p) => [p.id, p]))
-  return { getById: async (id: string) => byId.get(id) ?? null }
-}
+export const makeMemoryPortfolioRepo = (rows: ReadonlyArray<Portfolio>): PortfolioRepo => ({
+  async getById(id) {
+    return rows.find((p) => p.id === id) ?? null
+  },
+  async byOwnerId(userId) {
+    return rows.find((p) => p.ownerId === userId) ?? null
+  }
+})

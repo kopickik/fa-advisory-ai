@@ -1,4 +1,4 @@
-import * as S from "@effect/schema/Schema"
+import * as S from "effect/Schema"
 
 // --- Base contracts
 export const Risk = S.Literal("LOW", "MEDIUM", "HIGH")
@@ -62,4 +62,4 @@ export type PromptSuggestionDTO = S.Schema.Type<typeof PromptSuggestionDTO>
 export const GetPromptsQuerySchema = S.Struct({
   userId: S.String
 })
-export type GetPromptsQuery = S.Schema.Type<typeof GetPromptsQuerySchema>
+export type GetPromptsQuery = typeof GetPromptsQuerySchema.Type

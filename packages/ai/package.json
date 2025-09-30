@@ -24,6 +24,7 @@
   },
   "dependencies": {
     "@template/domain": "workspace:*",
+    "@template/use-cases": "workspace:*",
     "@effect/platform": "latest",
     "@effect/sql": "latest",
     "effect": "latest"

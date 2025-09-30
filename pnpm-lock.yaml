@@ -10,7 +10,7 @@ importers:
     dependencies:
       '@effect/schema':
         specifier: ^0.75.5
-        version: 0.75.5(effect@3.17.14)
+        version: 0.75.5(effect@3.18.0)
       '@fastify/type-provider-typebox':
         specifier: ^5.2.0
         version: 5.2.0(@sinclair/typebox@0.27.8)
@@ -44,10 +44,10 @@ importers:
         version: 0.3.2
       '@effect/language-service':
         specifier: latest
-        version: 0.41.0
+        version: 0.41.1
       '@effect/vitest':
         specifier: latest
-        version: 0.25.1(effect@3.17.14)(vitest@3.2.4(@types/node@22.18.6)(tsx@4.20.5)(yaml@2.8.1))
+        version: 0.26.0(effect@3.18.0)(vitest@3.2.4(@types/node@22.18.6)(tsx@4.20.5)(yaml@2.8.1))
       '@eslint/compat':
         specifier: 1.2.2
         version: 1.2.2(eslint@9.36.0)
@@ -82,8 +82,8 @@ importers:
         specifier: ^17.2.2
         version: 17.2.2
       effect:
-        specifier: ^3.17.14
-        version: 3.17.14
+        specifier: ^3.18.0
+        version: 3.18.0
       eslint:
         specifier: ^9.36.0
         version: 9.36.0
@@ -114,6 +114,9 @@ importers:
       typescript:
         specifier: ^5.9.2
         version: 5.9.2
+      vite-tsconfig-paths:
+        specifier: ^5.1.4
+        version: 5.1.4(typescript@5.9.2)(vite@7.1.7(@types/node@22.18.6)(tsx@4.20.5)(yaml@2.8.1))
       vitest:
         specifier: ^3.2.4
         version: 3.2.4(@types/node@22.18.6)(tsx@4.20.5)(yaml@2.8.1)
@@ -122,10 +125,10 @@ importers:
     dependencies:
       '@effect/platform':
         specifier: latest
-        version: 0.91.1(effect@3.17.14)
+        version: 0.92.0(effect@3.18.0)
       '@effect/sql':
         specifier: latest
-        version: 0.45.0(@effect/experimental@0.55.0(@effect/platform@0.91.1(effect@3.17.14))(effect@3.17.14))(@effect/platform@0.91.1(effect@3.17.14))(effect@3.17.14)
+        version: 0.46.0(@effect/experimental@0.55.0(@effect/platform@0.92.0(effect@3.18.0))(effect@3.18.0))(@effect/platform@0.92.0(effect@3.18.0))(effect@3.18.0)
       '@template/contracts':
         specifier: workspace:*
         version: link:../contracts/dist
@@ -134,36 +137,39 @@ importers:
         version: link:../domain/dist
       effect:
         specifier: latest
-        version: 3.17.14
+        version: 3.18.0
     publishDirectory: dist
 
   packages/agents:
     dependencies:
       '@effect/platform':
         specifier: latest
-        version: 0.91.1(effect@3.17.14)
+        version: 0.92.0(effect@3.18.0)
       '@effect/sql':
         specifier: latest
-        version: 0.45.0(@effect/experimental@0.55.0(@effect/platform@0.91.1(effect@3.17.14))(effect@3.17.14))(@effect/platform@0.91.1(effect@3.17.14))(effect@3.17.14)
+        version: 0.46.0(@effect/experimental@0.55.0(@effect/platform@0.92.0(effect@3.18.0))(effect@3.18.0))(@effect/platform@0.92.0(effect@3.18.0))(effect@3.18.0)
       effect:
         specifier: latest
-        version: 3.17.14
+        version: 3.18.0
     publishDirectory: dist
 
   packages/ai:
     dependencies:
       '@effect/platform':
         specifier: latest
-        version: 0.91.1(effect@3.17.14)
+        version: 0.92.0(effect@3.18.0)
       '@effect/sql':
         specifier: latest
-        version: 0.45.0(@effect/experimental@0.55.0(@effect/platform@0.91.1(effect@3.17.14))(effect@3.17.14))(@effect/platform@0.91.1(effect@3.17.14))(effect@3.17.14)
+        version: 0.46.0(@effect/experimental@0.55.0(@effect/platform@0.92.0(effect@3.18.0))(effect@3.18.0))(@effect/platform@0.92.0(effect@3.18.0))(effect@3.18.0)
       '@template/domain':
         specifier: workspace:*
         version: link:../domain/dist
+      '@template/use-cases':
+        specifier: workspace:*
+        version: link:../use-cases/dist
       effect:
         specifier: latest
-        version: 3.17.14
+        version: 3.18.0
     publishDirectory: dist
 
   packages/api:
@@ -203,59 +209,59 @@ importers:
     dependencies:
       '@effect/platform':
         specifier: latest
-        version: 0.91.1(effect@3.17.14)
+        version: 0.92.0(effect@3.18.0)
       '@effect/sql':
         specifier: latest
-        version: 0.45.0(@effect/experimental@0.55.0(@effect/platform@0.91.1(effect@3.17.14))(effect@3.17.14))(@effect/platform@0.91.1(effect@3.17.14))(effect@3.17.14)
+        version: 0.46.0(@effect/experimental@0.55.0(@effect/platform@0.92.0(effect@3.18.0))(effect@3.18.0))(@effect/platform@0.92.0(effect@3.18.0))(effect@3.18.0)
       effect:
         specifier: latest
-        version: 3.17.14
+        version: 3.18.0
     publishDirectory: dist
 
   packages/domain:
     dependencies:
       '@effect/platform':
         specifier: latest
-        version: 0.91.1(effect@3.17.14)
+        version: 0.92.0(effect@3.18.0)
       '@effect/sql':
         specifier: latest
-        version: 0.45.0(@effect/experimental@0.55.0(@effect/platform@0.91.1(effect@3.17.14))(effect@3.17.14))(@effect/platform@0.91.1(effect@3.17.14))(effect@3.17.14)
+        version: 0.46.0(@effect/experimental@0.55.0(@effect/platform@0.92.0(effect@3.18.0))(effect@3.18.0))(@effect/platform@0.92.0(effect@3.18.0))(effect@3.18.0)
       effect:
         specifier: latest
-        version: 3.17.14
+        version: 3.18.0
     publishDirectory: dist
 
   packages/infra:
     dependencies:
       '@effect/platform':
         specifier: latest
-        version: 0.91.1(effect@3.17.14)
+        version: 0.92.0(effect@3.18.0)
       '@effect/sql':
         specifier: latest
-        version: 0.45.0(@effect/experimental@0.55.0(@effect/platform@0.91.1(effect@3.17.14))(effect@3.17.14))(@effect/platform@0.91.1(effect@3.17.14))(effect@3.17.14)
+        version: 0.46.0(@effect/experimental@0.55.0(@effect/platform@0.92.0(effect@3.18.0))(effect@3.18.0))(@effect/platform@0.92.0(effect@3.18.0))(effect@3.18.0)
       effect:
         specifier: latest
-        version: 3.17.14
+        version: 3.18.0
     publishDirectory: dist
 
   packages/shared:
     dependencies:
       '@effect/platform':
         specifier: latest
-        version: 0.91.1(effect@3.17.14)
+        version: 0.92.0(effect@3.18.0)
       '@effect/sql':
         specifier: latest
-        version: 0.45.0(@effect/experimental@0.55.0(@effect/platform@0.91.1(effect@3.17.14))(effect@3.17.14))(@effect/platform@0.91.1(effect@3.17.14))(effect@3.17.14)
+        version: 0.46.0(@effect/experimental@0.55.0(@effect/platform@0.92.0(effect@3.18.0))(effect@3.18.0))(@effect/platform@0.92.0(effect@3.18.0))(effect@3.18.0)
       effect:
         specifier: latest
-        version: 3.17.14
+        version: 3.18.0
     publishDirectory: dist
 
   packages/ui:
     dependencies:
       '@effect/schema':
         specifier: ^0.75.5
-        version: 0.75.5(effect@3.17.14)
+        version: 0.75.5(effect@3.18.0)
       '@tanstack/react-query':
         specifier: ^5.90.2
         version: 5.90.2(react@19.1.1)
@@ -275,8 +281,8 @@ importers:
         specifier: workspace:*
         version: link:../shared/dist
       effect:
-        specifier: ^3.17.14
-        version: 3.17.14
+        specifier: ^3.18.0
+        version: 3.18.0
       react:
         specifier: ^19.1.1
         version: 19.1.1
@@ -328,13 +334,22 @@ importers:
     dependencies:
       '@effect/platform':
         specifier: latest
-        version: 0.91.1(effect@3.17.14)
+        version: 0.92.0(effect@3.18.0)
       '@effect/sql':
         specifier: latest
-        version: 0.45.0(@effect/experimental@0.55.0(@effect/platform@0.91.1(effect@3.17.14))(effect@3.17.14))(@effect/platform@0.91.1(effect@3.17.14))(effect@3.17.14)
+        version: 0.46.0(@effect/experimental@0.55.0(@effect/platform@0.92.0(effect@3.18.0))(effect@3.18.0))(@effect/platform@0.92.0(effect@3.18.0))(effect@3.18.0)
+      '@template/adapters':
+        specifier: workspace:*
+        version: link:../adapters/dist
+      '@template/domain':
+        specifier: workspace:*
+        version: link:../domain/dist
+      '@template/shared':
+        specifier: workspace:*
+        version: link:../shared/dist
       effect:
         specifier: latest
-        version: 3.17.14
+        version: 3.18.0
     publishDirectory: dist
 
 packages:
@@ -536,14 +551,14 @@ packages:
       lmdb:
         optional: true
 
-  '@effect/language-service@0.41.0':
-    resolution: {integrity: sha512-t2JZvcsKQ0NKBBVFAx8exitZkZQB0Dedd48/frgUc7j7Jn513QfTOg6IOBwBFS8fO2sVrJZDlcZDMaNnbh3liw==}
+  '@effect/language-service@0.41.1':
+    resolution: {integrity: sha512-BZaFkF1JdoTIJuzT7mNfUnfQG2MLxkQtn5b9y1z0BZUIcNfs5p7yR0ekYfTkPkt+TVD+9HE12VC1SsG5DReKww==}
     hasBin: true
 
-  '@effect/platform@0.91.1':
-    resolution: {integrity: sha512-zfagdv9JRFRGksgTgcBKPK+291V1KLgQsBE0E/jkNKlXRx4PupI/rqTOv2REdiXGGNcLRsh3+hwmOGgRmGIRCQ==}
+  '@effect/platform@0.92.0':
+    resolution: {integrity: sha512-WfkDWEGSEVVU+eb9I9onqK22FcdbPdydTNCi8UV/2+++rPrk1mIG33QUVO9sNDsO9nXR1bHwHS1o0d3QRx54Fw==}
     peerDependencies:
-      effect: ^3.17.14
+      effect: ^3.18.0
 
   '@effect/schema@0.75.5':
     resolution: {integrity: sha512-TQInulTVCuF+9EIbJpyLP6dvxbQJMphrnRqgexm/Ze39rSjfhJuufF7XvU3SxTgg3HnL7B/kpORTJbHhlE6thw==}
@@ -551,17 +566,17 @@ packages:
     peerDependencies:
       effect: ^3.9.2
 
-  '@effect/sql@0.45.0':
-    resolution: {integrity: sha512-250w6apb25GTj5T5zxXN1Yw3RJPeaE4xozghOImx5iZn/DHYXWPrTvEM9b/RNmSX5+JaeComObeNgpZbMzKfVQ==}
+  '@effect/sql@0.46.0':
+    resolution: {integrity: sha512-nm9TuTTG7gLmJlIPkf71wA5lXArSvkpm1oYoIF+rhf01wef+1ujz9Mv1SfuzYbzsk7W9+OXUIRMxz/nSlKkiGQ==}
     peerDependencies:
-      '@effect/experimental': ^0.55.0
-      '@effect/platform': ^0.91.0
-      effect: ^3.17.14
+      '@effect/experimental': ^0.56.0
+      '@effect/platform': ^0.92.0
+      effect: ^3.18.0
 
-  '@effect/vitest@0.25.1':
-    resolution: {integrity: sha512-OMYvOU8iGed8GZXxgVBXlYtjG+jwWj5cJxFk0hOHOfTbCHXtdCMEWlXNba5zxbE7dBnW4srbnSYrP/NGGTC3qQ==}
+  '@effect/vitest@0.26.0':
+    resolution: {integrity: sha512-h7r21XRtHpl8CQmIuplCK54bYJkUij4c6bUxK27y4d9dTXn4s7c/I3Lilb4VZxv3P3S3sChCu5YIGW4pdQFjZg==}
     peerDependencies:
-      effect: ^3.17.7
+      effect: ^3.18.0
       vitest: ^3.2.0
 
   '@emnapi/core@1.5.0':
@@ -1767,8 +1782,8 @@ packages:
   eastasianwidth@0.2.0:
     resolution: {integrity: sha512-I88TYZWc9XiYHRQ4/3c5rjjfgkjhLyW2luGIheGERbNQ6OY7yTybanSpDXZa8y7VUP9YmDcYa+eyq4ca7iLqWA==}
 
-  effect@3.17.14:
-    resolution: {integrity: sha512-VpIZz72+cg3357vLkNHN8CG+Uq2X0QHNv3qkyGInvG3lG5K7Ala1JliGIAdgNvwzaN37J27FuzVD8m0kEiv2Ig==}
+  effect@3.18.0:
+    resolution: {integrity: sha512-Hr0hVrnibYbheOUnbTwaV88NyyMTW7CrLCiOSJxMWns73pEiT29HJcsEx7pgs9E8rUa6z20775byVzXw0omPjw==}
 
   electron-to-chromium@1.5.224:
     resolution: {integrity: sha512-kWAoUu/bwzvnhpdZSIc6KUyvkI1rbRXMT0Eq8pKReyOyaPZcctMli+EgvcN1PAvwVc7Tdo4Fxi2PsLNDU05mdg==}
@@ -3757,36 +3772,36 @@ snapshots:
       '@dprint/typescript': 0.91.8
       prettier-linter-helpers: 1.0.0
 
-  '@effect/experimental@0.55.0(@effect/platform@0.91.1(effect@3.17.14))(effect@3.17.14)':
+  '@effect/experimental@0.55.0(@effect/platform@0.92.0(effect@3.18.0))(effect@3.18.0)':
     dependencies:
-      '@effect/platform': 0.91.1(effect@3.17.14)
-      effect: 3.17.14
+      '@effect/platform': 0.92.0(effect@3.18.0)
+      effect: 3.18.0
       uuid: 11.1.0
 
-  '@effect/language-service@0.41.0': {}
+  '@effect/language-service@0.41.1': {}
 
-  '@effect/platform@0.91.1(effect@3.17.14)':
+  '@effect/platform@0.92.0(effect@3.18.0)':
     dependencies:
-      effect: 3.17.14
+      effect: 3.18.0
       find-my-way-ts: 0.1.6
       msgpackr: 1.11.5
       multipasta: 0.2.7
 
-  '@effect/schema@0.75.5(effect@3.17.14)':
+  '@effect/schema@0.75.5(effect@3.18.0)':
     dependencies:
-      effect: 3.17.14
+      effect: 3.18.0
       fast-check: 3.23.2
 
-  '@effect/sql@0.45.0(@effect/experimental@0.55.0(@effect/platform@0.91.1(effect@3.17.14))(effect@3.17.14))(@effect/platform@0.91.1(effect@3.17.14))(effect@3.17.14)':
+  '@effect/sql@0.46.0(@effect/experimental@0.55.0(@effect/platform@0.92.0(effect@3.18.0))(effect@3.18.0))(@effect/platform@0.92.0(effect@3.18.0))(effect@3.18.0)':
     dependencies:
-      '@effect/experimental': 0.55.0(@effect/platform@0.91.1(effect@3.17.14))(effect@3.17.14)
-      '@effect/platform': 0.91.1(effect@3.17.14)
-      effect: 3.17.14
+      '@effect/experimental': 0.55.0(@effect/platform@0.92.0(effect@3.18.0))(effect@3.18.0)
+      '@effect/platform': 0.92.0(effect@3.18.0)
+      effect: 3.18.0
       uuid: 11.1.0
 
-  '@effect/vitest@0.25.1(effect@3.17.14)(vitest@3.2.4(@types/node@22.18.6)(tsx@4.20.5)(yaml@2.8.1))':
+  '@effect/vitest@0.26.0(effect@3.18.0)(vitest@3.2.4(@types/node@22.18.6)(tsx@4.20.5)(yaml@2.8.1))':
     dependencies:
-      effect: 3.17.14
+      effect: 3.18.0
       vitest: 3.2.4(@types/node@22.18.6)(tsx@4.20.5)(yaml@2.8.1)
 
   '@emnapi/core@1.5.0':
@@ -5053,7 +5068,7 @@ snapshots:
 
   eastasianwidth@0.2.0: {}
 
-  effect@3.17.14:
+  effect@3.18.0:
     dependencies:
       '@standard-schema/spec': 1.0.0
       fast-check: 3.23.2
@@ -6668,6 +6683,10 @@ snapshots:
     optionalDependencies:
       typescript: 5.8.3
 
+  tsconfck@3.1.6(typescript@5.9.2):
+    optionalDependencies:
+      typescript: 5.9.2
+
   tsconfig-paths@3.15.0:
     dependencies:
       '@types/json5': 0.0.29
@@ -6837,6 +6856,17 @@ snapshots:
       tsconfck: 3.1.6(typescript@5.8.3)
     optionalDependencies:
       vite: 7.1.7(@types/node@24.5.2)(tsx@4.20.5)(yaml@2.8.1)
+    transitivePeerDependencies:
+      - supports-color
+      - typescript
+
+  vite-tsconfig-paths@5.1.4(typescript@5.9.2)(vite@7.1.7(@types/node@22.18.6)(tsx@4.20.5)(yaml@2.8.1)):
+    dependencies:
+      debug: 4.4.3
+      globrex: 0.1.2
+      tsconfck: 3.1.6(typescript@5.9.2)
+    optionalDependencies:
+      vite: 7.1.7(@types/node@22.18.6)(tsx@4.20.5)(yaml@2.8.1)
     transitivePeerDependencies:
       - supports-color
       - typescript

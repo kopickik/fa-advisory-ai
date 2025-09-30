@@ -1,7 +1,12 @@
 {
 	"extends": "../../tsconfig.base.json",
 	"include": ["src/**/*.ts"],
-	"references": [{ "path": "../domain" }, { "path": "../shared" }, { "path": "../adapters" }],
+	"references": [
+		{ "path": "../shared" },
+		{ "path": "../domain" },
+		{ "path": "../contracts" },
+		{ "path": "../adapters" }
+	],
 	"compilerOptions": {
 		"types": ["node"],
 		"outDir": "dist",

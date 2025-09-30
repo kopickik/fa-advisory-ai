@@ -4,6 +4,37 @@ export type AppError =
   | { kind: "NotFound"; msg: string }
   | { kind: "Failure"; msg: string }
 
+export const isAppError = (e: unknown): e is AppError =>
+  typeof e === "object" &&
+  e !== null &&
+  "kind" in e &&
+  "msg" in e &&
+  typeof (e as any).kind === "string" &&
+  typeof (e as any).msg === "string"
+
+export const fromUnknown = (
+  e: unknown,
+  opts?: { invalidMsg?: string; fallbackMsg?: string }
+): AppError => {
+  if (isAppError(e)) return e
+
+  // Heuristics for validatino/parse errors (e.g., @effect/schema)
+  const name = typeof e === "object" && e !== null ? (e as any).name : undefined
+  const hasIssues = typeof e === "object" && e !== null && ("issues" in (e as any) || "errors" in (e as any))
+
+  if (name === "ParseError" || hasIssues) {
+    return {
+      kind: "Invalid",
+      msg: opts?.invalidMsg ?? "Invalid input",
+      details: e
+    }
+  }
+
+  if (e instanceof Error) return { kind: "Failure", msg: e.message }
+  if (typeof e === "string") return { kind: "Failure", msg: e }
+  return { kind: "Failure", msg: opts?.fallbackMsg ?? "Unexpected failure" }
+}
+
 export const toHttp = (e: AppError) => {
   switch (e.kind) {
     case "Forbidden":

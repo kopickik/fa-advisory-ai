@@ -1,48 +1,47 @@
 // packages/shared/src/createHandler.ts
-import * as S from "@effect/schema/Schema"
 import * as Effect from "effect/Effect"
-import { type AppError, toHttp } from "./errors.js"
-import type { Result } from "./result.js"
+import * as Schema from "effect/Schema"
+import type { FastifyReply, FastifyRequest } from "fastify"
+import { type AppError, fromUnknown, toHttp } from "./errors.js"
+import { type Result } from "./result.js"
 
-// Helpers to extract Encoded/Decoded from a Schema value (no From/To/Type/Infer needed)
-type EncodedOf<T extends S.Schema<any, any, any>> = T extends S.Schema<infer I, any, any> ? I : never
-type DecodedOf<T extends S.Schema<any, any, any>> = T extends S.Schema<any, infer A, any> ? A : never
-
-type UseCase<Input, Output> = (q: Input, ctx: any) => Effect.Effect<Result<Output, AppError>, never>
+// Use case returns Effect with no error channel and no required environment
+export type UseCase<Q, Out> = (
+  q: Q,
+  ctx: unknown
+) => Effect.Effect<Result<Out, AppError>, never, never>
 
 /**
- * Bind types to the schema value:
- *  - TSchema must require no env (R = never)
- *  - pick(req) returns the schema's Encoded input
- *  - useCase receives the Decoded value
+ * createHandler
+ * - schema: Schema<Q, I> (Q = decoded; I = encoded-from-request)
+ * - pick: FastifyRequest -> I (query/body/params)
+ * - useCase: Effect<Result<Out, AppError>, never, never>
  */
-export const createHandler = <TSchema extends S.Schema<any, any, never>, Out>(
-  schema: TSchema,
-  pick: (req: any) => EncodedOf<TSchema>,
-  useCase: UseCase<DecodedOf<TSchema>, Out>
-) =>
-async (req: any, reply: any) => {
-  return Effect.runPromise(
-    Effect.gen(function*() {
-      // Decode Encoded -> Decoded (Effect<DecodedOf<TSchema>, ParseError, never>)
-      const q = yield* S.decode(schema)(pick(req))
+export function createHandler<Q, I, Out>(
+  schema: Schema.Schema<Q, I>,
+  pick: (req: FastifyRequest) => I,
+  useCase: UseCase<Q, Out>
+) {
+  return async (req: FastifyRequest, reply: FastifyReply) => {
+    // 1) Decode synchronously; on failure, return HTTP error immediately
+    let q: Q
+    try {
+      const decode = Schema.decodeUnknownSync(schema)
+      q = decode(pick(req))
+    } catch (e) {
+      const out = toHttp(fromUnknown(e))
+      return reply.status(out.statusCode).type("application/json").send(out.body)
+    }
 
-      // Run use-case (Effect<Result<Out, AppError>, never>)
-      const result = yield* useCase(q, req)
+    // 2) Run the use case; it returns Result<Out, AppError> in Effect with E=never, R=never
+    const result = await Effect.runPromise(useCase(q, req))
 
-      if (!result.ok) {
-        const out = toHttp(result.error)
-        return reply.status(out.statusCode).type("application/json").send(out.body)
-      }
+    // 3) Uniform HTTP response
+    if (result.ok) {
       return reply.status(200).type("application/json").send(result.value)
-    }).pipe(
-      // Validation errors → 422
-      Effect.catchAll((parseError) =>
-        Effect.sync(() => {
-          const out = toHttp({ kind: "Invalid", msg: "Invalid request", details: parseError })
-          return reply.status(out.statusCode).type("application/json").send(out.body)
-        })
-      )
-    )
-  )
+    } else {
+      const out = toHttp(result.error)
+      return reply.status(out.statusCode).type("application/json").send(out.body)
+    }
+  }
 }

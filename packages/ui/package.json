@@ -17,7 +17,7 @@
     "@template/contracts": "workspace:*",
     "@template/domain": "workspace:*",
     "@template/shared": "workspace:*",
-    "effect": "^3.17.14",
+    "effect": "^3.18.0",
     "react": "^19.1.1",
     "react-dom": "^19.1.1"
   },
