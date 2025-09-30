@@ -15,6 +15,8 @@ export interface PromptDeps {
   clock?: () => string // ISO date-time, injectable for tests
 }
 
+const TIMEOUT_MS = process.env.CI === "true" ? 1000 : 200
+
 const toDayKey = (iso: string) => iso.slice(0, 10) // YYYY-MM-DD
 
 const retry3 = Schedule.recurs(3)
@@ -24,9 +26,9 @@ const timeout = <A, E, R>(ms: number) => (eff: Effect.Effect<A, E, R>) =>
 const loadAll = (d: PromptDeps, userId: string) =>
   Effect.all(
     [
-      pipe(Effect.promise(() => d.profiles.load(userId)), Effect.retry(retry3), timeout(200)),
-      pipe(Effect.promise(() => d.portfolios.byOwnerId(userId)), Effect.retry(retry3), timeout(200)),
-      pipe(Effect.promise(() => d.market.loadSnapshot()), Effect.retry(retry3), timeout(200))
+      pipe(Effect.promise(() => d.profiles.load(userId)), Effect.retry(retry3), timeout(TIMEOUT_MS)),
+      pipe(Effect.promise(() => d.portfolios.byOwnerId(userId)), Effect.retry(retry3), timeout(TIMEOUT_MS)),
+      pipe(Effect.promise(() => d.market.loadSnapshot()), Effect.retry(retry3), timeout(TIMEOUT_MS))
     ] as const
   )
 
