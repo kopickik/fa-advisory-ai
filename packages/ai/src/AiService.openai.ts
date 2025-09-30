@@ -1,4 +1,4 @@
-import type { AdviceConstraint, AdvicePlan, Portfolio } from "@template/domain"
+import type { AdviceConstraint, AdvicePlan, Holding, Portfolio } from "@template/domain"
 import type { AiService } from "./AiService.port.js"
 
 export const makeOpenAiService = (): AiService => ({
@@ -6,7 +6,7 @@ export const makeOpenAiService = (): AiService => ({
     { constraints, portfolio }: { constraints: AdviceConstraint; portfolio: Portfolio }
   ): Promise<AdvicePlan> {
     // Stub: replace with real LLM call (OpenAI/Bedrock) via env & client
-    const symbols = portfolio.holdings.map((h) => h.symbol)
+    const symbols = portfolio.holdings.map((h: Holding) => h.symbol)
     return {
       summary: `Draft plan considering constraints=${JSON.stringify(constraints)} for ${symbols.join(",")}`,
       steps: [
